@@ -14,3 +14,10 @@ Kesamaan URL koneksi tersebut menandakan bahwa program publisher dan subscriber 
 ### Running RabbitMQ as message broker
 
 ![Running RabbitMQ](public/running-rabbitmq.png)
+
+### Sending and processing event
+
+![Sending and processing event](public/connection-message-broker.png)
+![Processing event in subscriber](public/console-subscriber-publisher.png)
+
+Berdasarkan screenshot di atas, ketika perintah cargo run dieksekusi pada publisher, program mengirimkan 5 data event secara bersamaan ke dalam antrean RabbitMQ. Karena subscriber sedang berjalan dan dalam status aktif mendengarkan (listening), message broker langsung mendistribusikan kelima pesan tersebut untuk ditangkap dan diproses secara instan oleh subscriber. Hal ini membuktikan bahwa komunikasi async antara publisher dan subscriber melalui RabbitMQ telah berjalan dengan sukses.
