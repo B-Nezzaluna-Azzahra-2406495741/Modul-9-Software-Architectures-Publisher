@@ -21,3 +21,9 @@ Kesamaan URL koneksi tersebut menandakan bahwa program publisher dan subscriber 
 ![Processing event in subscriber](public/console-subscriber-publisher.png)
 
 Berdasarkan screenshot di atas, ketika perintah cargo run dieksekusi pada publisher, program mengirimkan 5 data event secara bersamaan ke dalam antrean RabbitMQ. Karena subscriber sedang berjalan dan dalam status aktif mendengarkan (listening), message broker langsung mendistribusikan kelima pesan tersebut untuk ditangkap dan diproses secara instan oleh subscriber. Hal ini membuktikan bahwa komunikasi async antara publisher dan subscriber melalui RabbitMQ telah berjalan dengan sukses.
+
+### Monitoring chart based on publisher
+
+![Monitoring chart based on publisher](public/monitoring-chart-publisher.png)
+
+Lonjakan (spike) pada grafik berkaitan langsung dengan eksekusi program publisher. Setiap kali menjalankan perintah cargo run, program secara instan mengirimkan 5 event pesan sekaligus ke dalam message broker. Grafik tersebut merespons dengan menampilkan lonjakan tajam pada metrik message rates yang menunjukkan lonjakan jumlah pesan yang masuk (publish) ke antrean RabbitMQ dalam waktu yang sangat singkat pada waktu tersebut.
